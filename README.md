@@ -4,19 +4,34 @@
 
 ## Install
 
-```bash
-# Add the tap (repo must be: github.com/MzxzD/homebrew-janet-opencode)
-brew tap MzxzD/janet-opencode
+### Option A: OpenCode only (manual janet-seed setup)
 
-# Install from latest dev (builds from source)
+```bash
+brew tap MzxzD/janet-opencode
 brew install --HEAD janet-opencode
 ```
 
-Then run:
+Then run: `janet-opencode`
+
+### Option B: Full bundle (recommended)
+
+One command installs OpenCode + janet-seed API server + Janet preset + launcher scripts:
 
 ```bash
-janet-opencode
+brew tap MzxzD/janet-opencode
+brew install --HEAD MzxzD/janet-opencode/janet-opencode-bundle
 ```
+
+First run: `ollama pull qwen2.5-coder:7b` (or your preferred model)
+
+Then: `janet-opencode-start` — starts janet_api_server in background and launches OpenCode with the Janet preset.
+
+## Bundle commands
+
+| Command | Purpose |
+|---------|---------|
+| `janet-opencode-start` | Start janet_api_server + launch OpenCode with Janet preset |
+| `janet-opencode-server` | Run janet_api_server only (e.g. in a separate terminal) |
 
 ## Requirements
 
@@ -24,6 +39,7 @@ janet-opencode
 - **Bun** (installed automatically as a dependency)
 - **Node** (for some tooling)
 - **ripgrep**
+- **Bundle only**: Ollama, Python 3.12 (installed automatically)
 
 ## Upgrade
 
