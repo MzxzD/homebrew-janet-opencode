@@ -14,7 +14,7 @@ class JanetOpencodeBundle < Formula
   resource "janetos" do
     url "https://codeload.github.com/MzxzD/JanetOS/zip/main"
     # sha256: update when JanetOS changes (brew fetch MzxzD/janet-opencode/janet-opencode-bundle 2>&1 | grep sha256)
-    sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+    sha256 "0223b875d546b50a4ccfef4ff6f91b09a1bef59a4253ffb7d783f6a7a27905d1"
   end
 
   def install
