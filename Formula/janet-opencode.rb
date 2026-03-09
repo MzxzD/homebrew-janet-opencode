@@ -7,7 +7,7 @@ class JanetOpencode < Formula
 
   head "https://github.com/MzxzD/Janet-OpenCode.git", branch: "dev"
 
-  depends_on "bun"
+  depends_on "oven-sh/bun/bun"
   depends_on "node"
   depends_on "ripgrep"
 
@@ -17,7 +17,9 @@ class JanetOpencode < Formula
 
     # Build only for current platform (--single)
     opencode_dir = buildpath/"packages/opencode"
-    system "bun", "run", "build", "--", "--single", chdir: opencode_dir
+    cd opencode_dir do
+      system "bun", "run", "build", "--", "--single"
+    end
 
     # Find the built binary for this platform
     arch = Hardware::CPU.arm? ? "arm64" : "x64"
